@@ -23,7 +23,7 @@ import 'quill/dist/quill.bubble.css'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import axios from 'axios'       // 开发环境，也就是本地的
+import axios from 'axios' // 开发环境，也就是本地的
 // 配置请求的跟路径
 axios.defaults.baseURL = 'http://localhost:8080/ssm227gu/'
 // 在 request 拦截器中，展示进度条 NProgress.start()
@@ -36,6 +36,9 @@ axios.interceptors.request.use(config => {
 })
 // 在 response 拦截器中，隐藏进度条 NProgress.done()
 axios.interceptors.response.use(config => {
+  if (config.data && config.data.code === 401) { // 401, token失效
+    router.push('/login')
+  }
   NProgress.done()
   return config
 })
@@ -47,7 +50,7 @@ Vue.component('tree-table', TreeTable)
 // 将富文本编辑器，注册为全局可用的组件
 Vue.use(VueQuillEditor)
 
-Vue.filter('dateFormat', function(originVal) {
+Vue.filter('dateFormat', function (originVal) {
   const dt = new Date(originVal)
 
   const y = dt.getFullYear()
