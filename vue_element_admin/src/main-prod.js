@@ -30,6 +30,9 @@ axios.interceptors.request.use(config => {
 })
 // 在 response 拦截器中，隐藏进度条 NProgress.done()
 axios.interceptors.response.use(config => {
+  if (config.data && config.data.code === 401) { // 401, token失效
+    router.push('/login')
+  }
   NProgress.done()
   return config
 })
