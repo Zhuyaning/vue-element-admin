@@ -30,7 +30,7 @@ axios.defaults.baseURL = 'http://localhost:8080/ssm227gu/'
 axios.interceptors.request.use(config => {
   // console.log(config)
   NProgress.start()
-  config.headers.Authorization = window.sessionStorage.getItem('token')
+  config.headers.Authorization = window.localStorage.getItem('token')
   // 在最后必须 return config
   return config
 })
