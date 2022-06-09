@@ -7,11 +7,6 @@ import './assets/fonts/iconfont.css'
 // 导入全局样式表
 import './assets/css/global.css'
 import TreeTable from 'vue-table-with-tree-grid'
-
-// 粒子插件
-import VueParticles from 'vue-particles'
-Vue.use(VueParticles)
-
 // 导入富文本编辑器
 import VueQuillEditor from 'vue-quill-editor'
 // require styles 导入富文本编辑器对应的样式
@@ -24,6 +19,10 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 import axios from 'axios' // 开发环境，也就是本地的
+// 粒子插件
+import VueParticles from 'vue-particles'
+Vue.use(VueParticles)
+
 // 配置请求的跟路径
 axios.defaults.baseURL = 'http://localhost:8080/ssm227gu/'
 // 在 request 拦截器中，展示进度条 NProgress.start()

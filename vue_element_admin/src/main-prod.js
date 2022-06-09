@@ -9,7 +9,6 @@ import TreeTable from 'vue-table-with-tree-grid'
 
 // 粒子插件
 import VueParticles from 'vue-particles'
-Vue.use(VueParticles)
 
 // 导入富文本编辑器
 import VueQuillEditor from 'vue-quill-editor'
@@ -17,7 +16,10 @@ import VueQuillEditor from 'vue-quill-editor'
 // 导入 NProgress 包对应的JS和CSS
 import NProgress from 'nprogress'
 
-import axios from 'axios'             // 生产环境，也就是线上的
+import axios from 'axios' // 生产环境，也就是线上的
+
+Vue.use(VueParticles)
+
 // 配置请求的跟路径
 axios.defaults.baseURL = 'http://localhost:8080/ssm227gu/'
 // 在 request 拦截器中，展示进度条 NProgress.start()
